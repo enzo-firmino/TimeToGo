@@ -13,7 +13,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="25dp">
 
@@ -66,10 +69,30 @@
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/where"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/budgetCV">
+        android:layout_below="@id/budgetCV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="What kind of holiday?"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:shadowColor="#696969"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"/>
+
+
+    <LinearLayout
+        android:id="@+id/picturesLL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/where">
 
 
         <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
@@ -124,10 +147,37 @@
                 android:elevation="10dp"
                 android:src="@drawable/mountaincircle" />
 
+
         </com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper>
 
 
     </LinearLayout>
 
+    <android.support.v7.widget.CardView
+        android:id="@+id/takeAwayTV"
+        style="cardViewGeneralStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardBackgroundColor="#fcb123"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="25dp">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:text="Take me away!"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
