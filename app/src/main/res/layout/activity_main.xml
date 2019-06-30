@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#99ccff"
+    android:background="#f2f2f2"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.CardView
@@ -17,8 +17,9 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="25dp">
+        app:cardBackgroundColor="#fff"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="10dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -30,10 +31,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="What's your budget?"
-                android:textColor="@color/colorAccent"
-                android:textSize="30sp"
+                android:textColor="#000"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -42,9 +47,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/budgetTitle"
                 android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="0$ - 1500$"
-                android:textColor="@color/colorAccent"
-                android:textSize="20sp"
+                android:textColor="#000"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
@@ -54,17 +60,17 @@
                 android:layout_below="@+id/budgetValues"
                 android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
-                app:bar_color="#ffb3cc"
-                app:bar_highlight_color="@color/colorAccent"
+                app:bar_color="#87cbf9"
+                app:bar_highlight_color="#58ade7"
                 app:corner_radius="10"
                 app:data_type="_integer"
                 app:gap="500"
-                app:left_thumb_color="#e6004c"
-                app:left_thumb_color_pressed="#990033"
+                app:left_thumb_color="#3687be"
+                app:left_thumb_color_pressed="#2b61a3"
                 app:max_value="10000"
                 app:min_value="0"
-                app:right_thumb_color="#e6004c"
-                app:right_thumb_color_pressed="#990033" />
+                app:right_thumb_color="#3687be"
+                app:right_thumb_color_pressed="#2b61a3" />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
@@ -75,30 +81,33 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/budgetCV"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:text="What kind of holiday?"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif-condensed-light"
         android:shadowColor="#696969"
         android:shadowDx="5"
         android:shadowDy="5"
-        android:shadowRadius="5"/>
+        android:text="What kind of holiday?"
+        android:textColor="#0f0f0f"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 
     <LinearLayout
         android:id="@+id/picturesLL"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/where">
+        android:layout_below="@id/where"
+        android:layout_centerHorizontal="true"
+        android:weightSum="3">
 
 
         <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             app:shadowAlpha="1"
             app:shadowOffsetX="15"
@@ -116,7 +125,9 @@
         <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             app:shadowAlpha="1"
             app:shadowOffsetX="15"
@@ -134,7 +145,9 @@
         <com.sdsmdg.harjot.materialshadows.MaterialShadowViewWrapper
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:layout_weight="1"
             app:shadowAlpha="1"
             app:shadowOffsetX="15"
@@ -153,6 +166,72 @@
 
     </LinearLayout>
 
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/numberOfPeopleCV"
+        style="cardViewGeneralStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picturesLL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/numberOfPeopleTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="How many of you?"
+                android:textColor="#0f0f0f"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/numberOfPeopleValues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/numberOfPeopleTitle"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="1"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar
+                android:id="@+id/peopleCRS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/numberOfPeopleTitle"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                app:bar_color="#87cbf9"
+                app:bar_highlight_color="#58ade7"
+                app:corner_radius="10"
+                app:data_type="_integer"
+                app:left_thumb_color="#3687be"
+                app:left_thumb_color_pressed="#2b61a3"
+                app:max_value="10"
+                app:min_value="1"
+                app:steps="1" />
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
     <android.support.v7.widget.CardView
         android:id="@+id/takeAwayTV"
         style="cardViewGeneralStyle"
@@ -161,17 +240,17 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="#fcb123"
-        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="#3687be"
+        app:cardCornerRadius="2dp"
         app:cardElevation="25dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:fontFamily="sans-serif-condensed-light"
             android:padding="10dp"
             android:text="Take me away!"
             android:textAlignment="center"
@@ -180,4 +259,108 @@
             android:textStyle="bold" />
 
     </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/forWhoLong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numberOfPeopleCV"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:shadowColor="#696969"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:text="For how long?"
+        android:textColor="#0f0f0f"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
+    <LinearLayout
+        android:id="@+id/duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forWhoLong"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_above="@+id/takeAwayTV"
+        android:weightSum="3">
+
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/aFewDays"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/bluecircle" />
+
+            <TextView
+                android:id="@+id/aFewDaysText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/aFewDays"
+                android:layout_alignTop="@+id/aFewDays"
+                android:layout_alignEnd="@+id/aFewDays"
+                android:layout_alignBottom="@+id/aFewDays"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="A few\ndays"
+                android:textSize="20sp"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/aboutAWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/bluecircle" />
+
+            <TextView
+                android:id="@+id/aboutAWeekText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/aboutAWeek"
+                android:layout_alignTop="@+id/aboutAWeek"
+                android:layout_alignEnd="@+id/aboutAWeek"
+                android:layout_alignBottom="@+id/aboutAWeek"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="About a\nweek"
+                android:textSize="20sp"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/youChoose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bluecircle" />
+
+            <TextView
+                android:id="@+id/youChooseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/youChoose"
+                android:layout_alignTop="@+id/youChoose"
+                android:layout_alignEnd="@+id/youChoose"
+                android:layout_alignBottom="@+id/youChoose"
+                android:layout_margin="1dp"
+                android:gravity="center"
+                android:text="You\nchoose"
+                android:textSize="20sp"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
 </RelativeLayout>

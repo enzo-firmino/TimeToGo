@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
+import com.crystal.crystalrangeseekbar.interfaces.OnSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
+import com.crystal.crystalrangeseekbar.widgets.CrystalSeekbar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,9 +19,17 @@ public class MainActivity extends AppCompatActivity {
     Boolean city;
     Boolean mountain;
 
+    Boolean days;
+    Boolean week;
+    Boolean choose;
+
     ImageView beachIV;
     ImageView mountainIV;
     ImageView cityIV;
+
+    ImageView daysIV;
+    ImageView weekIV;
+    ImageView youChooseIV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         beach = false;
         city = false;
         mountain = false;
+        days = false;
+        week = false;
+        choose = false;
 
         setImagesToBlackAndWhite();
         changeValueCrystalRangeSeeker();
@@ -73,6 +86,41 @@ public class MainActivity extends AppCompatActivity {
                 changeImageSaturationMountain();
             }
         });
+
+        daysIV = findViewById(R.id.aFewDays);
+        weekIV = findViewById(R.id.aboutAWeek);
+        youChooseIV = findViewById(R.id.youChoose);
+
+        //Set filter to black and white
+        ColorMatrix matrixDuration = new ColorMatrix();
+        matrixDuration.setSaturation(0);
+        ColorMatrixColorFilter filterDuration = new ColorMatrixColorFilter(matrixDuration);
+
+        daysIV.setColorFilter(filterDuration);
+        weekIV.setColorFilter(filterDuration);
+        youChooseIV.setColorFilter(filterDuration);
+
+        daysIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                days = !days;
+                changeImageSaturationDays();
+            }
+        });
+        weekIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                week = !week;
+                changeImageSaturationWeek();
+            }
+        });
+        youChooseIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                choose = !choose;
+                changeImageSaturationYouChoose();
+            }
+        });
     }
 
     private void changeImageSaturationBeach() {
@@ -114,6 +162,43 @@ public class MainActivity extends AppCompatActivity {
         mountainIV.setColorFilter(filter);
     }
 
+    private void changeImageSaturationDays() {
+        ColorMatrix matrixDuration = new ColorMatrix();
+
+        if (days) {
+            matrixDuration.setSaturation(1);
+        } else {
+            matrixDuration.setSaturation(0);
+        }
+
+        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrixDuration);
+        daysIV.setColorFilter(filter);
+    }
+    private void changeImageSaturationWeek() {
+        ColorMatrix matrixDuration = new ColorMatrix();
+
+        if (week) {
+            matrixDuration.setSaturation(1);
+        } else {
+            matrixDuration.setSaturation(0);
+        }
+
+        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrixDuration);
+        weekIV.setColorFilter(filter);
+    }
+    private void changeImageSaturationYouChoose() {
+        ColorMatrix matrixDuration = new ColorMatrix();
+
+        if (choose) {
+            matrixDuration.setSaturation(1);
+        } else {
+            matrixDuration.setSaturation(0);
+        }
+
+        ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrixDuration);
+        youChooseIV.setColorFilter(filter);
+    }
+
     private void changeValueCrystalRangeSeeker() {
 
         final TextView budgetValuesTV = findViewById(R.id.budgetValues);
@@ -122,7 +207,17 @@ public class MainActivity extends AppCompatActivity {
         budgetValuesCRS.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue, Number maxValue) {
-                budgetValuesTV.setText(budgetValuesCRS.getSelectedMinValue() + "$ - " + budgetValuesCRS.getSelectedMaxValue() + "$");
+                budgetValuesTV.setText(minValue + "$ - " + maxValue + "$");
+            }
+        });
+
+        final TextView peopleValuesTV = findViewById(R.id.numberOfPeopleValues);
+        final CrystalSeekbar peopleCRS = findViewById(R.id.peopleCRS);
+
+        peopleCRS.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number value) {
+            peopleValuesTV.setText(value + "");
             }
         });
     }
