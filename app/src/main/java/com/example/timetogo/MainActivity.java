@@ -174,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
         ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrixDuration);
         daysIV.setColorFilter(filter);
     }
+
     private void changeImageSaturationWeek() {
         ColorMatrix matrixDuration = new ColorMatrix();
 
@@ -186,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
         ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrixDuration);
         weekIV.setColorFilter(filter);
     }
+
     private void changeImageSaturationYouChoose() {
         ColorMatrix matrixDuration = new ColorMatrix();
 
@@ -207,7 +209,12 @@ public class MainActivity extends AppCompatActivity {
         budgetValuesCRS.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
             @Override
             public void valueChanged(Number minValue, Number maxValue) {
-                budgetValuesTV.setText(minValue + "$ - " + maxValue + "$");
+                if (maxValue.intValue() == 3000) {
+                    budgetValuesTV.setText(minValue + "$ - " + maxValue + "$+");
+
+                } else {
+                    budgetValuesTV.setText(minValue + "$ - " + maxValue + "$");
+                }
             }
         });
 
@@ -217,7 +224,12 @@ public class MainActivity extends AppCompatActivity {
         peopleCRS.setOnSeekbarChangeListener(new OnSeekbarChangeListener() {
             @Override
             public void valueChanged(Number value) {
-            peopleValuesTV.setText(value + "");
+                if (value.intValue() == 1) {
+                    peopleValuesTV.setText("Just me!");
+
+                } else {
+                    peopleValuesTV.setText(value + "");
+                }
             }
         });
     }

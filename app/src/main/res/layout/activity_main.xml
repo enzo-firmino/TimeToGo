@@ -67,7 +67,7 @@
                 app:gap="500"
                 app:left_thumb_color="#3687be"
                 app:left_thumb_color_pressed="#2b61a3"
-                app:max_value="10000"
+                app:max_value="3000"
                 app:min_value="0"
                 app:right_thumb_color="#3687be"
                 app:right_thumb_color_pressed="#2b61a3" />
