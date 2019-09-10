@@ -1,11 +1,14 @@
 package com.example.timetogo;
 
+import android.content.Intent;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.QuickContactBadge;
 import android.widget.TextView;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
@@ -45,8 +48,20 @@ public class MainActivity extends AppCompatActivity {
 
         setImagesToBlackAndWhite();
         changeValueCrystalRangeSeeker();
+        openActivityOnButtonClick();
 
 
+    }
+
+    private void openActivityOnButtonClick() {
+        CardView button = findViewById(R.id.takeAwayTV);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LandingPage.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setImagesToBlackAndWhite() {
